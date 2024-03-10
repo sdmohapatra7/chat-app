@@ -14,6 +14,6 @@ app.use(express.json()); // to parse the incoming requests with JSON payloads (f
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
-app.use('/api/auth',userRoutes)
+app.use('/api/users',userRoutes)
 
 app.listen(PORT,()=> console.log(`Server Running on Port ${PORT}`));
