@@ -2,7 +2,8 @@ import dotenv from 'dotenv';
 import cookieParser from "cookie-parser";
 import express from 'express'
 import authRoutes from './routes/authRoutes.js'
-import userRoutes from './routes/userRoutes.js'
+import userRoutes from './routes/userRoutes.js';
+import messageRoutes from './routes/messageRoutes.js'
 import {db} from './config/mongoose.js';
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.json()); // to parse the incoming requests with JSON payloads (f
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
-app.use('/api/users',userRoutes)
+app.use('/api/users',userRoutes);
+app.use("/api/messages", messageRoutes);
 
 app.listen(PORT,()=> console.log(`Server Running on Port ${PORT}`));
